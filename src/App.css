@@ -1,0 +1,376 @@
+/* :root {
+  --gray: rgb(69, 67, 67);
+  --coderBG: rgb(0, 0, 0);
+  --sadBG: pink;
+  --happy: yellow; 
+}
+*/
+.App {
+  min-height: 100vh;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: 1s
+}
+
+.food-main-container {
+  width: 50px;
+  height: 150px;
+  background-color: rgb(2, 180, 250);
+  border-radius: 5px;
+  border: 3px solid #3e6d9c;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 1;
+}
+.gluck-main-container {
+  position: absolute;
+  right: 10px;;
+  width: 50px;
+  height: 150px;
+  background-color: rgb(2, 180, 250);
+  border-radius: 5px;
+  border: 3px solid #3e6d9c;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 1;
+}
+.header-show {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 75px;
+  background-color: var(--gray);
+  transition: 1s;
+}
+
+.header-hide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 0px;
+  background-color: var(--gray);
+  transition: 1s;
+}
+
+.black {
+  width: 20px;
+  height: 70%;
+  background-color: black;
+  margin-left: -7px;
+  margin-right: -7px;
+  z-index: 7;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.white {
+  width: 30px;
+  height: 100%;
+  box-shadow: inset 0 0 3px #000;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background-color: white;
+  z-index: 5;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.overlay-center-div-none {
+  width: 50%;
+  height: 90px;
+  background-color: rgba(0, 225, 255, 0.541);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  transition:400ms
+  
+  
+}
+
+.overlay-center-div-shake {
+  width: 50%;
+  height: 90px;
+  background-color: rgba(252, 0, 0, 0.726);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  animation: shake 0.2s infinite linear;
+  animation-iteration-count: 5;
+  transition: 200ms
+
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px)
+  }
+
+  25% {
+    transform: translateX(-20px)
+  }
+
+  50% {
+    transform: translateX(0px)
+  }
+
+  75% {
+    transform: translateX(20px)
+  }
+
+  100% {
+    transform: translateX(0px)
+  }
+}
+
+.mood-button {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  font-size: 48px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: grab;
+  transition: 1s
+}
+
+.mood-button:hover {
+  transform: scale(1.1);
+}
+.gluck-button {
+  
+  right: 0;
+  margin-right:0px;
+  transform: rotate(+90deg);
+  border: none;
+  font-size: 24px;
+  width: auto;
+  font-weight: 800;
+  background-color: rgba(0,0,0,0);
+  cursor: pointer;
+  transition: 1s;
+  z-index: 2;
+}
+#food-button {
+  left: 0;
+  margin-left: -10px;
+  transform: rotate(-90deg);
+  border: none;
+  font-size: 24px;
+  width: auto;
+  font-weight: 800;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: 1s;
+}
+
+#food-button:hover {
+  transform: rotate(-90deg) scale(1.1);
+  letter-spacing: 2px;
+}
+
+.food-inside-container {
+  width: calc(90% - 60px);
+  height: calc(90% - 40px);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  box-shadow: inset 0 0 10px #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s
+}
+.gluck-inside-container {
+  width: calc(90% - 60px);
+  height: calc(90% - 40px);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  box-shadow: inset 0 0 10px #000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s
+}
+.gluck-button:hover {
+  transform: rotate(90deg) scale(1.1);
+  letter-spacing: 2px;
+}
+
+.food-inside-container:hover {
+  background-color: white;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+img {
+  border-radius: 10%;
+}
+
+.alcohol-button {
+  width: 40%;
+  height: 20%;
+  background-color: #850000;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  margin-right: 30px;
+  transition: 1s;
+}
+
+.alcohol-button:hover {
+  background-color: #b30101;
+  cursor: pointer;
+}
+
+.choose-alcohol-main-container {
+  width: 90%;
+  height: 60%;
+  background-color: black;
+  box-shadow: inset 0 0 0px #555;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: 1s;
+}
+
+.choose-alcohol-main-container:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 20px #555;
+}
+
+.pianoButton {
+  width: 100px;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 1;
+  background-color: orange;
+  font-weight: 500;
+  border: none;
+  transition: 1s;
+}
+
+.pianoButton:hover {
+  width: 120px;
+}
+
+.themaButton {
+  width: 120px;
+  border-radius: 50px;
+  position: absolute;
+  top: 25px;
+  z-index: 1;
+  background-color: turquoise;
+  font-weight: 500;
+  border: none;
+  transition: 1s;
+}
+
+.themaButton:hover {
+  width: 150px;
+}
+
+@media screen and (max-width: 720px) {
+  .food-main-container {
+    transform: scale(0.8);
+  }
+  .gluck-main-container{
+    transform: scale(0.8);
+  }
+
+  .pianoButton {
+    display: none;
+  }
+}
+
+#login-container {
+  position: absolute;
+  right: 0;
+  width: 120px;
+  min-height: 75px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  border-bottom-left-radius: 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  border: 1px solid black
+}
+
+#login-button,
+#register-button {
+  background-color: orange;
+  border: 1px solid black;
+  border-radius: 5px
+}
+
+#food-close-meal-button{
+  background-color: orange;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 70px;
+  border: 1px solid black;
+  margin-top: 5px;
+  cursor: pointer;
+
+}
+#zufallszahlen{
+  font-size: 25px;
+  border-radius: 15px;
+  background-color: yellow;
+  transition: 1s;
+  
+  
+}
+#zufallszahlen:hover{
+  background-color: yellowgreen;
+  cursor: pointer;
+  
+}
